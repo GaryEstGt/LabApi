@@ -40,3 +40,9 @@ exports.pizza_update = function (req, res) {
         res.send('Pizza udpated.');
     });
 };
+exports.pizza_delete = function (req, res) {
+    pizza.findOneAndRemove(req.body.nombre, function (err) {
+        if (err) return next(err);
+        res.send('Deleted successfully!');
+    })
+};
