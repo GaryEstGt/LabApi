@@ -1,4 +1,5 @@
 const pizza= require('../models/pizzasModel');
+const tok= require('../models/tokenModel');
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
@@ -44,5 +45,11 @@ exports.pizza_delete = function (req, res) {
     pizza.findOneAndRemove(req.body.nombre, function (err) {
         if (err) return next(err);
         res.send('Deleted successfully!');
+    })
+};
+ exports.pizza_verificar = function (req, res) {
+    tok.findOne(req.body.nombre, function (err, pizza) {
+        if (err) return next(err);
+        res.send(pizza);
     })
 };

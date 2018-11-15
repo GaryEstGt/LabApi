@@ -10,6 +10,5 @@ let PizzaSchema = new Schema({
     queso: {type: Boolean}
 });
 
-
 // Export the model
 module.exports = mongoose.model('Pizza', PizzaSchema);

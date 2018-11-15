@@ -14,7 +14,22 @@ Index.use(bodyParser.json());
 Index.use(bodyParser.urlencoded({extended: false}));
 Index.use('/Pizza', pizza);
 let port = 1234;
+var jwt = require('jsonwebtoken');
+var tokenData = {
+    username: "usuario"
+    // ANY DATA
+  }
 
+ 
+Index.get('/verificar/:name', (req, res) => {
+    var token = jwt.sign(tokenData, req.params.name, {
+        expiresIn: 60 * 60 * 100 
+     })
+    
+     res.send({
+       token
+     })  
+})
 Index.listen(port, () => {
     console.log('Servidor Iniciado en el puerto: n' + port);
 });

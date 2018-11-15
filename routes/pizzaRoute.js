@@ -9,4 +9,5 @@ router.get('/details', pizza_controller.pizza_details);
 router.get('/:nombre', pizza_controller.pizza_detailsone);
 router.put('/:nombre/update', pizza_controller.pizza_update);
 router.delete('/:nombre/delete', pizza_controller.pizza_delete);
+router.get('/verificar/:nombre', pizza_controller.pizza_verificar);
 module.exports = router;
